@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Git Checkout') {
+        stage('Checkout Code') {
             steps {
                 git 'https://github.com/snehalphadtare12/terraform-jenkins.git'
             }
@@ -12,6 +11,12 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh 'terraform init'
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                sh 'terraform validate'
             }
         }
 
@@ -27,4 +32,14 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo 'Infrastructure provisioned successfully 🚀'
+        }
+        failure {
+            echo 'Pipeline failed ❌'
+        }
+    }
 }
+
