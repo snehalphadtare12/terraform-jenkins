@@ -112,3 +112,7 @@ Add approval stage in Jenkins
 Create reusable Terraform modules
 
 Add monitoring and logging
+
+👤 Author
+
+Snehal Phadtare
