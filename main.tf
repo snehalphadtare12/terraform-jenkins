@@ -1,8 +1,8 @@
-resource "aws_instance" "demo" {
-  ami           = "ami-00ca570c1b6d79f36"
-  instance_type = "t3.micro"
+resource "aws_instance" "jenkins_ec2" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
 
   tags = {
-    Name = "Jenkins-Terraform-EC2"
+    Name = "Terraform-Jenkins-EC2"
   }
 }
